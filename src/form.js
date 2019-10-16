@@ -15,22 +15,31 @@ const submitForm = e => {
 
   return (
     <form onSubmit={submitForm}>
-      <label htmlFor="title">Title</label>
+      <label htmlFor="name">Name</label>
       <input
-        name="title"
-        email="text"
-        role="title"
+        name="name"
+        type="text"
+        id="name"
         onChange={handleChanges}
         value={note.title}
       />
-      <label htmlFor="note">Note</label>
-      <textarea
-        id="note"
-        name="body"
+      <label htmlFor="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
         onChange={handleChanges}
         value={note.body}
       />
-      <button type="submit">Add Note</button>
+      <label htmlFor="role">Role</label>
+      <input
+        id="role"
+        name="role"
+        type="text"
+        onChange={handleChanges}
+        value={note.body}
+      />
+      <button type="submit">submit</button>
     </form>
   );
 };
