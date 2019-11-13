@@ -1,43 +1,45 @@
 import React, { useState } from "react";
+
 const NoteForm = props => {
-    console.log("props", props);
-    const [note, setNote] = useState({ title: "", body: "" });
+    const [note, setNote] = useState({ name: '', email: '', role:'' });
   
     const handleChanges = e => {
-      console.log(note);
       setNote({ ...note, [e.target.name]: e.target.value });
+      console.log(e.target.name);
     };
-const submitForm = e => {
-    e.preventDefault();
-    props.addNewNote(note);
-    setNote({ title: "", body: "" });
+
+const submitForm = addNote => {
+  addNote.preventDefault();
+    props.addNewMember(note);
+    setNote({ name: '', email: '', role:'' });
+    console.log(note);
   };
 
   return (
     <form onSubmit={submitForm}>
       <label htmlFor="name">Name</label>
       <input
-        name="name"
-        type="text"
         id="name"
+        type="text"
+        name="name"
         onChange={handleChanges}
-        value={note.title}
+        value={note.name}
       />
       <label htmlFor="email">Email</label>
       <input
         id="email"
+        type="text"
         name="email"
-        type="email"
         onChange={handleChanges}
-        value={note.body}
+        value={note.email}
       />
       <label htmlFor="role">Role</label>
       <input
         id="role"
-        name="role"
         type="text"
+        name="role"
         onChange={handleChanges}
-        value={note.body}
+        value={note.role}
       />
       <button type="submit">submit</button>
     </form>
